@@ -1,26 +1,314 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #090807;
+  --foreground: #d8d0c0;
+
+  --black: #090807;
+  --black-soft: #11100d;
+
+  --bone: #d8d0c0;
+  --bone-dark: #aaa18f;
+
+  --gold: #9a8352;
+  --gold-light: #c2a96a;
+
+  --blood: #641b18;
+  --blood-dark: #3b100f;
+
+  --border: rgba(216, 208, 192, 0.18);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--bone);
+  color: var(--black);
+}
+
+/* ================================
+   TYPOGRAPHY
+================================ */
+
+h1,
+h2,
+h3  {
+  margin: 0;
+  font-family: var(--font-playfair-display-sc), Georgia, serif;
+  font-weight: 400;
+}
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+h1 {
+  letter-spacing: 0.08em;
+}
+
+h2 {
+  letter-spacing: 0.12em;
+}
+
+p {
+  line-height: 1.8;
+}
+
+/* ================================
+   LINKS
+================================ */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--gold-light);
+}
+
+/* ================================
+   SCROLLBAR
+================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #29251e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* ================================
+   UTILITY CLASSES
+================================ */
+
+.text-bone {
+  color: var(--bone);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.text-blood {
+  color: var(--blood);
+}
+
+.border-old {
+  border-color: var(--border);
+}
+
+/* ================================
+   ORNAMENTS
+================================ */
+
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+.ornament::before,
+.ornament::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+/* ================================
+   IMAGE TREATMENT
+================================ */
+
+.engraving {
+  filter:
+    grayscale(100%)
+    contrast(115%)
+    brightness(75%);
+}
+
+.renaissance-image {
+  filter:
+    grayscale(70%)
+    sepia(20%)
+    contrast(110%)
+    brightness(70%);
+}
+
+/* ================================
+   GRAIN
+================================ */
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.045;
+
+  background-image: url("/noise.png");
+  background-repeat: repeat;
+
+  z-index: 9999;
+}
+
+/* ================================
+   DARK VIGNETTE
+================================ */
+
+.vignette {
+  position: relative;
+}
+
+.vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 35%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+}
+
+/* ================================
+   SECTION
+================================ */
+
+.section {
+  position: relative;
+
+  padding: 8rem 5vw;
+
+  border-top: 1px solid var(--border);
+}
+
+/* ================================
+   BUTTON
+================================ */
+
+.button-old {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.8rem 1.5rem;
+
+  border: 1px solid var(--gold);
+
+  color: var(--bone);
+
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+.button-old:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ================================
+   DECORATIVE FRAME
+================================ */
+
+.frame {
+  position: relative;
+
+  border: 1px solid var(--border);
+}
+
+.frame::before,
+.frame::after {
+  content: "";
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  border-color: var(--gold);
+}
+
+.frame::before {
+  top: -1px;
+  left: -1px;
+
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.frame::after {
+  right: -1px;
+  bottom: -1px;
+
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 1.5rem;
+  }
+
+  h1 {
+    letter-spacing: 0.04em;
+  }
 }
