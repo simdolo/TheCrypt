@@ -24,7 +24,7 @@ const albums = [
 
 export default function Albums() {
   return (
-    <section className="bg-black px-6 py-24 text-stone-200 md:px-12 lg:px-20">
+    <section className="px-6 pb-24 text-stone-200 md:px-12 lg:px-20">
       <div className="mx-auto max-w-7xl">
 
         {/* Heading */}
@@ -81,7 +81,7 @@ export default function Albums() {
               </div>
 
               {/* Album Information */}
-              <div className="mt-5">
+              <div className="relative mt-5">
                 <h3 className="font-serif text-xl uppercase tracking-wide">
                   {album.title}
                 </h3>
@@ -93,17 +93,22 @@ export default function Albums() {
                 {/* Streaming Buttons */}
                 <div
                   className="
+                    absolute
+                    left-0
+                    top-full
+                    z-10
                     mt-4
                     flex
                     gap-2
-                    max-h-16
                     opacity-100
                     transition-all
                     duration-500
-                    md:max-h-0
-                    md:overflow-hidden
+
+                    md:pointer-events-none
+                    md:-translate-y-2
                     md:opacity-0
-                    md:group-hover:max-h-16
+                    md:group-hover:pointer-events-auto
+                    md:group-hover:translate-y-0
                     md:group-hover:opacity-100
                   "
                 >
@@ -114,13 +119,12 @@ export default function Albums() {
                     className="
                       inline-flex
                       min-h-10
-                      flex-1
                       items-center
                       justify-center
                       gap-2
                       border
                       border-stone-700
-                      px-3
+                      px-4
                       py-2
                       text-[10px]
                       uppercase
@@ -131,8 +135,6 @@ export default function Albums() {
                       hover:border-stone-300
                       hover:bg-stone-200
                       hover:text-black
-                      md:flex-none
-                      md:px-4
                     "
                   >
                     <span className="text-xs">▶</span>
@@ -146,13 +148,12 @@ export default function Albums() {
                     className="
                       inline-flex
                       min-h-10
-                      flex-1
                       items-center
                       justify-center
                       gap-2
                       border
                       border-stone-700
-                      px-3
+                      px-4
                       py-2
                       text-[10px]
                       uppercase
@@ -163,8 +164,6 @@ export default function Albums() {
                       hover:border-stone-300
                       hover:bg-stone-200
                       hover:text-black
-                      md:flex-none
-                      md:px-4
                     "
                   >
                     <span className="text-xs">▶</span>

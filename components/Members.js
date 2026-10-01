@@ -35,7 +35,7 @@ export default function Members() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="bg-black text-stone-200">
+    <section className= "text-stone-200 pb-24">
       {/* Heading */}
       <div className="mx-auto max-w-7xl px-6 pb-12 pt-24 md:px-10 md:pt-32">
         <p className="mb-3 text-xs uppercase tracking-[0.35em] text-stone-500">
@@ -67,12 +67,11 @@ export default function Members() {
               alt={member.name}
               className={`
                 absolute inset-0 h-full w-full object-cover
-                grayscale
-                transition-all duration-700
+                transition-all duration-900
                 ${
                   active === index
-                    ? "scale-100 opacity-100"
-                    : "scale-110 opacity-0"
+                    ? "scale-100 opacity-100 grayscale-50"
+                    : "scale-110 opacity-0 grayscale"
                 }
               `}
             />
@@ -82,7 +81,7 @@ export default function Members() {
               className={`
                 absolute inset-0 bg-black
                 transition-opacity duration-700
-                ${active === index ? "opacity-40" : "opacity-0"}
+                ${active === index ? "opacity-10" : "opacity-0"}
               `}
             />
 

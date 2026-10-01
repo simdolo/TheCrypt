@@ -30,8 +30,27 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplaySC.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
+        {/* Background texture */}
+        <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.035]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+            radial-gradient(
+              circle at center,
+              rgba(255,255,255,0.5) 1px,
+              transparent 1px
+            )
+          `,
+              backgroundSize: "18px 18px",
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 flex min-h-full flex-col">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );

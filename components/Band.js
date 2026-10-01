@@ -1,19 +1,6 @@
 export default function Band() {
   return (
-    <section className="relative overflow-hidden bg-[#0b0a09] text-stone-200">
-
-      {/* Background texture */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.035]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at center, rgba(255,255,255,0.5) 1px, transparent 1px)
-            `,
-            backgroundSize: "18px 18px",
-          }}
-        />
-      </div>
+    <section className="relative overflow-hidden text-stone-200">
 
       {/* Top ornament */}
       <div className="relative mx-auto flex max-w-7xl items-center justify-center px-6 pt-24">
