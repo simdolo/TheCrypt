@@ -1,13 +1,12 @@
-import Image from "next/image";
-import Hero from "@/components/Hero";
 import Albums from "@/components/Albums";
 import Members from "@/components/Members";
 import Band from "@/components/Band";
+import GrandMask from "@/components/GrandMask";
 
 export default function Home() {
   return (
     <div>
-      <Hero />
+      <GrandMask />
       <Albums />
       <Members />
       <Band />

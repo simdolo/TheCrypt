@@ -7,7 +7,7 @@ const romanNumerals = ["I", "II", "III", "IV"];
 const members = [
   {
     role: "Singer",
-    name: "Duko",
+    name: "Bestial",
     info: "Vocals, guitar and the voice behind the band's darkest hymns.",
     image: "/images/members/Duko.jpg",
   },
